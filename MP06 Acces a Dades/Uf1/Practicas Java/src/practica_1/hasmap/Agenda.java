@@ -1,4 +1,4 @@
-package practicas_iniciales;
+package hasmap;
 
 import java.util.*;
 public class Agenda {
