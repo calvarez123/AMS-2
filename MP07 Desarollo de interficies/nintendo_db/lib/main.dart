@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 import 'app.dart';
+import 'app_data.dart';
 
 void main() async {
 // En aplicacions d'escriptori, cridar la funció 'showWindow'
@@ -17,7 +19,12 @@ void main() async {
   }
 
 // Definir 'App' com el widget principal
-  runApp(const App());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AppData(),
+      child: const App(),
+    ),
+  );
 }
 
 // Al mostrar la finestra d'aplicació,
