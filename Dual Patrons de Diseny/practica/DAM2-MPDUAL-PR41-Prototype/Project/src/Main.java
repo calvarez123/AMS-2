@@ -4,6 +4,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Electrodomestic> listaelectrodomesticos = new ArrayList<>();
+        List<Electrodomestic> listacloneselect = new ArrayList<>();
 
         Forn forn1 = new Forn();
         forn1.setNom("hornito1");
@@ -36,6 +37,33 @@ public class Main {
         listaelectrodomesticos.add(renta1);
         listaelectrodomesticos.add(renta2);
 
+        Forn fornclonado1 = (Forn) forn1.clone();
+        Forn fornclonado2 = (Forn) forn2.clone();
+        listacloneselect.add(fornclonado1);
+        listacloneselect.add(fornclonado2);
+
+        Nevera neveclonado1 = (Nevera) neve1.clone();
+        Nevera neveclonado2 = (Nevera) neve2.clone();
+        listacloneselect.add(neveclonado1);
+        listacloneselect.add(neveclonado2);
+        
+        Nevera neveclonado1 = (Nevera) neve1.clone();
+        Nevera neveclonado2 = (Nevera) neve2.clone();
+        listacloneselect.add(neveclonado1);
+        listacloneselect.add(neveclonado2);
+
+
+        Nevera neve1 = new Nevera();
+        neve1.setNom("neverita1");
+        Nevera neve2 = new Nevera();
+        neve2.setNom("neverita2");
+
+        Rentadora renta1 = new Rentadora();
+        renta1.setNom("rentadora1");
+        Rentadora renta2 = new Rentadora();
+        renta2.setNom("rentadora2");
+
+        System.out.println(listaelectrodomesticos);
         
     }
 }
