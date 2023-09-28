@@ -9,10 +9,10 @@ import java.nio.file.StandardCopyOption;
 public class PR125cp {
     public static void main(String[] args) throws IOException {
         // Ruta del archivo que quieres copiar
-        Path origen = Path.of("/home/super/AMS-2/MP06 Acces a Dades/Uf1/Practicas Java/src/practica_2/carpeta_movida/copiao.txt");
+        Path origen = Path.of("/home/super/AMS-2/MP06 Acces a Dades/Uf1/Practica_2/src/practica_2/carpeta_movida/copiao.txt");
 
         // Ruta de destino donde quieres copiar el archivo
-        Path destino = Path.of("/home/super/AMS-2/MP06 Acces a Dades/Uf1/Practicas Java/src/practica_2/MyFiles/copiao.txt");
+        Path destino = Path.of("/home/super/AMS-2/MP06 Acces a Dades/Uf1/Practica_2/src/practica_2/MyFiles/copiao.txt");
 
         try {
             // Copiar el archivo
