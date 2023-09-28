@@ -67,7 +67,7 @@ public class PR121Files {
                 System.out.println("El archivo "+ archivo1.getName()+" no se ha podido borrar");
             }
 
-        //Codigo que lista los archivos que hay una carpeta
+            //Codigo que lista los archivos que hay una carpeta
         carpeta = new File("/home/super/AMS-2/MP06 Acces a Dades/Uf1/Practicas Java/src/practica_2/MyFiles");
         if (carpeta.exists() && carpeta.isDirectory()) {
             // Lista los archivos en la carpeta
