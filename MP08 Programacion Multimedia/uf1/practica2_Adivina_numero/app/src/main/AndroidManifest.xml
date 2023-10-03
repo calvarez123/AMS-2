@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Practica2_Adivina_numero"
         tools:targetApi="31">
         <activity
+            android:name=".RankinActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

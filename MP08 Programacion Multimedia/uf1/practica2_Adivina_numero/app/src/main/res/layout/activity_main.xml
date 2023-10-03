@@ -35,8 +35,8 @@
 
     <EditText
         android:id="@+id/textousu"
-        android:layout_width="124dp"
-        android:layout_height="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="143dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="144dp"
@@ -81,5 +81,19 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/pantalla2"
+        android:layout_width="101dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="315dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="40dp"
+        android:text="ranking"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
