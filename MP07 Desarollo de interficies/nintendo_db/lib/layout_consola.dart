@@ -5,8 +5,8 @@ class Layoutconsola extends StatelessWidget {
 
 // Relacionar els colors amb el text que els defineix
   final Map<String, Color> colorMap = {
-    'red': Colors.red,
-    'blue': Colors.blue,
+    'white': Colors.white,
+    'purple': Colors.purple,
     'green': Colors.green,
     'orange': Colors.orange,
     'brown': Colors.brown,
@@ -22,12 +22,12 @@ class Layoutconsola extends StatelessWidget {
   }
 
   // ... aquí la funció ‘build’ definida a la següent diapositiva
-  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          const SizedBox(height: 10),
           // Ocupar la meitat superior de l'espai amb la imatge
           SizedBox(
             width: MediaQuery.of(context).size.width * 100.0,
@@ -49,16 +49,22 @@ class Layoutconsola extends StatelessWidget {
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
-                Text(itemData['data']),
-                Text(itemData['procesador']),
                 Container(
                   width: 10,
                   height: 10,
-                  color: getColorFromString(itemData['color']),
+                  decoration: BoxDecoration(
+                    color: getColorFromString(itemData['color']),
+                    border: Border.all(
+                        color: Colors.black,
+                        width: 1.0), // Borde negro de 1 píxel
+                  ),
                 ),
                 const SizedBox(height: 10),
-                Text(itemData['venudes']),
-                Text(itemData['imatge']),
+                Text(itemData['data']),
+                const SizedBox(height: 10),
+                Text(itemData['procesador']),
+                const SizedBox(height: 10),
+                Text("${itemData['venudes']}"),
               ],
             ),
           ),

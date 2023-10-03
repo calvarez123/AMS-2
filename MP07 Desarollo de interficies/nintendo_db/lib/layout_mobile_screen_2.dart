@@ -1,5 +1,8 @@
 // Aquest widget de layout, necessita saber a quina ‘seccio’ i quin item (index) ha de mostrar
 import 'package:flutter/material.dart';
+import 'package:nintendo_db/layout_consola.dart';
+import 'package:nintendo_db/layout_desktop.dart';
+import 'package:nintendo_db/layout_jocs.dart';
 import 'package:nintendo_db/layout_personatge.dart';
 import 'package:provider/provider.dart';
 import 'app_data.dart';
@@ -28,7 +31,9 @@ class _StateLayoutMobileScreen2 extends State<LayoutMobileScreen2> {
       case 'Personatges':
         return LayoutPersonatge(itemData: itemData);
       case 'Consoles':
-        return LayoutPersonatge(itemData: itemData);
+        return Layoutconsola(itemData: itemData);
+      case 'Jocs':
+        return LayoutJocs(itemData: itemData);
     }
     return Text('Unknown layout: ${widget.seccio}');
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nintendo_db/layout_consola.dart';
+import 'package:nintendo_db/layout_jocs.dart';
 import 'package:provider/provider.dart';
 import 'layout_personatge.dart';
 import 'app_data.dart';
@@ -81,6 +83,10 @@ class _StateLayoutDesktop extends State<LayoutDesktop> {
       switch (seccio) {
         case 'Personatges':
           return LayoutPersonatge(itemData: itemData);
+        case 'Consoles':
+          return Layoutconsola(itemData: itemData);
+        case 'Jocs':
+          return LayoutJocs(itemData: itemData);
       }
     }
     return const Text("");

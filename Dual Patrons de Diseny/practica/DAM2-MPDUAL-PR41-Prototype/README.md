@@ -1,5 +1,7 @@
 # Exemple de Prototype #
 
+CRISTIAN CAMILO ALVAREZ MARTINEZ
+
 En aquest projecte hi ha un exemple de Prototype a Java
 
 ### Compilació i funcionament ###
