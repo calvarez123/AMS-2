@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Practica2_Adivina_numero"
         tools:targetApi="31">
         <activity
-            android:name=".RankinActivity"
+            android:name=".RankingActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
