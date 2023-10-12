@@ -2,9 +2,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class ControllerMobile0 {
+    ControllerPersonatges personaje = new ControllerPersonatges();
     @FXML
     private void toViewPersonatges(ActionEvent event) {
         UtilsViews.setView("MobilePersonatges");
+        
     }
     @FXML
     private void toViewJocs(ActionEvent event) {
@@ -14,8 +16,5 @@ public class ControllerMobile0 {
     private void toViewConsoles(ActionEvent event) {
         UtilsViews.setView("MobileConsoles");
     }
-    @FXML
-    private void back(ActionEvent event) {
-        UtilsViews.setView("MobileConsoles");
+    
     }
-}   
