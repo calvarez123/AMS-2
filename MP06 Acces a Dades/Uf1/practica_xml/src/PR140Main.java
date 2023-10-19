@@ -5,7 +5,7 @@ import org.w3c.dom.NodeList;
 
 public class PR140Main {
     public static void main(String[] args) {
-        String filePath = "C:\\Users\\Cristian\\AMS-2\\MP06 Acces a Dades\\Uf1\\practica_xml\\data\\persones.xml";
+        String filePath = "data/persones.xml";
         Document doc = UtilsXML.read(filePath);
         // Exemple de llistar tots els elements d'un XPath
         

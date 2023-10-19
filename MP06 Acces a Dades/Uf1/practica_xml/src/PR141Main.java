@@ -13,16 +13,10 @@ import javax.xml.transform.stream.StreamResult;
 public class PR141Main {
     public static void main(String[] args) {
         try {
-            // Crear un DocumentBuilderFactory
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+           DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+           DocumentBuilder builder = factory.newDocumentBuilder();
+           Document document = builder.newDocument();
 
-            // Crear un DocumentBuilder
-            DocumentBuilder builder = factory.newDocumentBuilder();
-
-            // Crear un nuevo documento XML
-            Document document = builder.newDocument();
-
-            // Crear el elemento raíz "biblioteca"
             Element biblioteca = document.createElement("biblioteca");
             document.appendChild(biblioteca);
 
@@ -44,7 +38,7 @@ public class PR141Main {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(document);
-            String rutaArchivo = "C:\\Users\\Cristian\\AMS-2\\MP06 Acces a Dades\\Uf1\\practica_xml\\data\\biblioteca.xml";
+            String rutaArchivo = "data/biblioteca.xml";
             StreamResult result = new StreamResult(new File(rutaArchivo));
             transformer.transform(source, result);
             
