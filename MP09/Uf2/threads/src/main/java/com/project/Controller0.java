@@ -26,8 +26,17 @@ public class Controller0 {
     private Label percentatge0, percentatge1 , percentatge2;
     @FXML
     private ProgressBar progress0, progress1 , progress2;
+
+    private int progresoactual1 ;
+    private int progresoactual2 ;
+    private int progresoactual3 ;
     
-    private ExecutorService executor = Executors.newFixedThreadPool(3); // Creem una pool de dos fils
+    private ExecutorService executor = Executors.newFixedThreadPool(1); // Creem una pool de dos fils
+    private Future<?> tarea1 ,tarea2,tarea3;
+    private boolean runningtarea1 = false;
+    private boolean runningtarea2 = false;
+    private boolean runningtarea3 = false;
+
 
     
 
@@ -35,63 +44,106 @@ public class Controller0 {
     private void animateToView1(ActionEvent event) {
         UtilsViews.setViewAnimating("View1");
     }
+
     @FXML
-    private void runboton1() {
-
-        executor.submit(new SumTask("Hilo 1"))
-        
-    }
-    @FXML
-    public void initialize() {
-        
-    }
-
-
-    private void backgroundTask(int index) {
-        // Executar la tasca
-
-        
-        executor.submit(() -> {
+    private void runtareas(ActionEvent event) {
+        Button sourceButton = (Button) event.getSource();
+        //esto es para el boton 1
+        if (sourceButton== boton1){
+            if (runningtarea1 == true){
+                tarea1.cancel(true);
+                runningtarea1 = false;
+                boton1.setText("iniciar");
+            }else {
+                tarea1 = backgroundTask(0, progresoactual1);
+                runningtarea1 = true;
+                boton1.setText("Stop");
+            }
             
-            try {
-                for (int i = 0; i <= 100; i++) {
-                    final int currentValue = i;
-                    // linea uno
+        }
+        if (sourceButton== boton2){
+            if (runningtarea2 == true){
+                tarea2.cancel(true);
+                runningtarea2 = false;
+                boton2.setText("iniciar");
+            }else {
+                tarea2 = backgroundTask(1, progresoactual2);
+                runningtarea2 = true;
+                boton2.setText("Stop");
+            }
+            
+        }
+        if (sourceButton== boton3){
+            if (runningtarea3 == true){
+                tarea3.cancel(true);
+                runningtarea3 = false;
+                boton3.setText("iniciar");
+            }else {
+                tarea3 = backgroundTask(2, progresoactual3);
+                runningtarea3 = true;
+                boton3.setText("Stop");
+            }
+            
+        }
+        
+    }
 
+
+    private Future<?> backgroundTask(int index, int numprogreso) {
+        // Executar la tasca
+        final int finalvalor = numprogreso;
+        
+        return executor.submit(() -> {
+            int valor = finalvalor;
+            try {
+                Random random = new Random();
+                while (valor < 100) {
+                    if (Thread.currentThread().isInterrupted()) {
+                        return;
+                    }
+                    
+                    if (valor > 100) {
+                        valor = 100;
+                    }
                     if (index == 0) {
                         // Actualitzar el Label en el fil d'aplicació de l'UI
                         Platform.runLater(() -> {
-                            String porcentaje0 = percentatge0.getText();
-                            percentatge0.setText(String.valueOf(currentValue) + "%");                            
-                            progress0.setProgress(currentValue/100.0);
-                            if (porcentaje0 == "100%"){
-                                stopExecutor();
+                            
+                            percentatge0.setText(String.valueOf(valor) + "%");                            
+                            progress0.setProgress(valor/100.0);
+                            progresoactual1=valor;
+                  
+                            if (progresoactual1 == 100) {
+                                progresoactual1 = 0;
+                                boton1.setText("Activar");
                             }
                             
                         });
-                        Thread.sleep(100);
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            // Vuelve a establecer la bandera de interrupción
+                            Thread.currentThread().interrupt();
+                        }
 
                     }
                     //linea 2
                     if (index == 1) {
                         // Actualitzar el Label en el fil d'aplicació de l'UI
-                        String porcentaje1 = percentatge0.getText();
-
+    
                         int randomNumber = random.nextInt(3) + 2; 
                         int numeroAleatorio = (random.nextInt(3) + 3);
                         numeroAleatorio = numeroAleatorio*1000;
                         
-                        int numero = currentValue+randomNumber;
+                        int numero = valor+randomNumber;
                         
                         Platform.runLater(() -> {
+                            progresoactual2=currentValue;
                             percentatge1.setText(String.valueOf(numero) + "%");
                             progress1.setProgress(numero/100.0);
-                            if (porcentaje1 == "100%"){
+                            if (progresoactual2 == 100){
                                 stopExecutor();
                             }
-                            System.out.println(randomNumber);
-                            System.out.println(currentValue);
-                            System.out.println(numero);
 
                         });
                         Thread.sleep(numeroAleatorio);
