@@ -3,6 +3,8 @@ package com.project;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 import javafx.application.Platform;
 
 import javafx.event.ActionEvent;
@@ -17,7 +19,7 @@ public class Controller0 {
         
 
     @FXML
-    private Button button0, button1, button2, button3;
+    private Button button0, boton1, boton2, boton3;
     @FXML
     private AnchorPane container;
     @FXML
@@ -27,21 +29,28 @@ public class Controller0 {
     
     private ExecutorService executor = Executors.newFixedThreadPool(3); // Creem una pool de dos fils
 
+    
+
     @FXML
     private void animateToView1(ActionEvent event) {
         UtilsViews.setViewAnimating("View1");
     }
-
     @FXML
-    private void runTask() {
+    private void runboton1() {
+
+        executor.submit(new SumTask("Hilo 1"))
         
-        backgroundTask(0);
-        backgroundTask(1);
-        backgroundTask(2);
     }
+    @FXML
+    public void initialize() {
+        
+    }
+
 
     private void backgroundTask(int index) {
         // Executar la tasca
+
+        
         executor.submit(() -> {
             
             try {
@@ -53,8 +62,7 @@ public class Controller0 {
                         // Actualitzar el Label en el fil d'aplicació de l'UI
                         Platform.runLater(() -> {
                             String porcentaje0 = percentatge0.getText();
-                            percentatge0.setText(String.valueOf(currentValue) + "%");
-                            
+                            percentatge0.setText(String.valueOf(currentValue) + "%");                            
                             progress0.setProgress(currentValue/100.0);
                             if (porcentaje0 == "100%"){
                                 stopExecutor();
@@ -72,7 +80,7 @@ public class Controller0 {
                         int randomNumber = random.nextInt(3) + 2; 
                         int numeroAleatorio = (random.nextInt(3) + 3);
                         numeroAleatorio = numeroAleatorio*1000;
-                        System.out.println(randomNumber);
+                        
                         int numero = currentValue+randomNumber;
                         
                         Platform.runLater(() -> {
@@ -81,6 +89,9 @@ public class Controller0 {
                             if (porcentaje1 == "100%"){
                                 stopExecutor();
                             }
+                            System.out.println(randomNumber);
+                            System.out.println(currentValue);
+                            System.out.println(numero);
 
                         });
                         Thread.sleep(numeroAleatorio);
@@ -99,13 +110,15 @@ public class Controller0 {
                         Thread.sleep(1000);
                     }
 
-                    System.out.println("Updating label: " + index + ", Value: " + currentValue);
+                    //System.out.println("Updating label: " + index + ", Value: " + currentValue);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
     }
+
+    
     
     // Aquesta funció la cridaries quan vulguis tancar l'executor (per exemple, quan tanquis la teva aplicació)
     public void stopExecutor() {
