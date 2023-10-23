@@ -1,46 +1,69 @@
+import java.beans.PropertyChangeSupport;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 public class PR450Magatzem {
-    private ArrayList<String> productes;
-    private int capacitatInicial = 10;
+    private ArrayList<PR450Producte> productes = new ArrayList<>();
+    private int capacitat = 10;
+    private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
-    public PR450Magatzem(ArrayList<String> productes, int capacitatInicial) {
-        this.productes = productes;
-        this.capacitatInicial = capacitatInicial;
+    public PR450Magatzem() {
     }
 
-   
-
-    public int getCapacitatInicial() {
-        return this.capacitatInicial;
-    }
-
-    public void setCapacitatInicial(int capacitatInicial) {
-        this.capacitatInicial = capacitatInicial;
-    }
-
-
-    public void addProducte(String producte) {
-        if (productes.size() < capacitatInicial) {
+    public void addProducte(PR450Producte producte) {
+        if (productes.size() < capacitat) {
             productes.add(producte);
-        } else {
-            System.out.println("El magatzem està ple. No es pot afegir més productes.");
+            pcs.firePropertyChange("magatzemAdd", null, producte);
+            capacitat--;
         }
     }
 
-    public void getProductes() {
-        System.out.println("Productes al magatzem:");
-        for (String producte : productes) {
-            System.out.println(producte);
+    public void removeProducte(int id) {
+        PR450Producte producteToRemove = null;
+        for (PR450Producte producte : productes) {
+            if (producte.getId() == id) {
+                producteToRemove = producte;
+                break;
+            }
+        }
+        if (producteToRemove != null) {
+            productes.remove(producteToRemove);
+            pcs.firePropertyChange("magatzemRemove", producteToRemove, null);
+            capacitat++;
+            pcs.firePropertyChange("magatzemEntrega", null, producteToRemove);
         }
     }
-    public boolean removeProducte(String producte) {
-        boolean removed = productes.remove(producte);
-        if (removed) {
-            System.out.println("Producte eliminat: " + producte);
-        } else {
-            System.out.println("No s'ha trobat el producte: " + producte);
-        }
-        return removed;
+
+
+    public int getCapacitat() {
+        return this.capacitat;
     }
+
+    public void setCapacitat(int capacitat) {
+        this.capacitat = capacitat;
+    }
+
+ 
+
+    public ArrayList<PR450Producte> getProductes() {
+        return productes;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(listener);
+    }
+    @Override
+    public String toString() {
+    StringBuilder result = new StringBuilder("Magatzem:\n");
+    for (PR450Producte producte : productes) {
+        result.append("Producte ID: ").append(producte.getId()).append(", Nom: ").append(producte.getNom()).append("\n");
+    }
+    return result.toString();
+}
+
 }
