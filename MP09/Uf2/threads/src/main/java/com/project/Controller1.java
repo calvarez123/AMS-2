@@ -163,3 +163,9 @@ public class Controller1 implements initialize {
         }
     }
 }
+/*futureImage.thenAcceptAsync(result -> {
+        // Verificar nuevamente si se debe detener antes de mostrar la imagen
+        if (!stopThread) {
+            callBack.accept(result);
+        }
+    }, Platform::runLater); */
