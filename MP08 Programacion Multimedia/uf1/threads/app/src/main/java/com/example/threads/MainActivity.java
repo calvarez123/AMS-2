@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Log.i("mensaje",getDataFromUrl("https://api.myip.com"));
                         String cambio = getDataFromUrl("https://api.myip.com");
-                        String urldisplay = "https://randomfox.ca/images/122.jpg";
+                        String urldisplay = getDataFromUrl("https://randomfox.ca/floof/");
                         Bitmap bitmap = null;
                         try {
                             InputStream in = new java.net.URL(urldisplay).openStream();
