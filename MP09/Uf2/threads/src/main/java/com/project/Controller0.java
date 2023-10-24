@@ -148,7 +148,7 @@ public class Controller0 {
                     
                     Platform.runLater(() -> {
                         progresoactual2=currentValue;
-                        percentatge1.setText(String.valueOf(currentValue) + "%");
+                        percentatge1.setText(String.valueOf(numero) + "%");
                         progress1.setProgress(numero/100.0);
                         if (progresoactual2 == 99){
                             stopExecutor();
@@ -175,7 +175,7 @@ public class Controller0 {
                         
                         progresoactual3=currentValue;
                         
-                        percentatge2.setText(String.valueOf(currentValue) + "%");
+                        percentatge2.setText(String.valueOf(numero) + "%");
                         progress2.setProgress(numero/100.0);
                         if (progresoactual3 == 99){
                             stopExecutor();
