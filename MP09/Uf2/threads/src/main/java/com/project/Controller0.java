@@ -31,7 +31,7 @@ public class Controller0 {
     private int progresoactual2 ;
     private int progresoactual3 ;
     
-    private ExecutorService executor = Executors.newFixedThreadPool(1); // Creem una pool de dos fils
+    private ExecutorService executor = Executors.newFixedThreadPool(3); // Creem una pool de dos fils
     private Future<?> tarea1 ,tarea2,tarea3;
     private boolean runningtarea1 = false;
     private boolean runningtarea2 = false;
@@ -95,77 +95,103 @@ public class Controller0 {
         
         return executor.submit(() -> {
             int valor = finalvalor;
-            try {
-                Random random = new Random();
-                while (valor < 100) {
-                    if (Thread.currentThread().isInterrupted()) {
-                        return;
-                    }
+            Random random = new Random();
+            while (valor < 100) {
+                if (Thread.currentThread().isInterrupted()) {
+                    return;
+                }
+                valor++;
+                if (valor > 100) {
+                    valor = 100;
+                }
+                final int currentValue;
+                if (valor < 100){
+                    currentValue = valor;
                     
-                    if (valor > 100) {
-                        valor = 100;
+                }else {
+                    currentValue = 0;
+                   
+                }
+                if (index == 0) {
+                    // Actualitzar el Label en el fil d'aplicació de l'UI
+                    
+                    Platform.runLater(() -> {
+                        progresoactual1=currentValue;
+                        percentatge0.setText(String.valueOf(currentValue) + "%");                            
+                        progress0.setProgress(currentValue/100.0);
+                        progresoactual1=currentValue;
+              
+                        if (progresoactual1 == 99) {
+                            progresoactual1 = 0;
+                            
+                            boton1.setText("Activar");
+                        }
+                        
+                    });
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        // Vuelve a establecer la bandera de interrupción
+                        Thread.currentThread().interrupt();
                     }
-                    if (index == 0) {
-                        // Actualitzar el Label en el fil d'aplicació de l'UI
-                        Platform.runLater(() -> {
-                            
-                            percentatge0.setText(String.valueOf(valor) + "%");                            
-                            progress0.setProgress(valor/100.0);
-                            progresoactual1=valor;
-                  
-                            if (progresoactual1 == 100) {
-                                progresoactual1 = 0;
-                                boton1.setText("Activar");
-                            }
-                            
-                        });
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            // Vuelve a establecer la bandera de interrupción
-                            Thread.currentThread().interrupt();
+
+                }
+                //linea 2
+                if (index == 1) {
+                    // Actualitzar el Label en el fil d'aplicació de l'UI
+                    
+                    int randomNumber = random.nextInt(3) + 2; 
+                    int numeroAleatorio = (random.nextInt(3) + 3);
+                    numeroAleatorio = numeroAleatorio*1000;
+                    
+                    int numero = valor+randomNumber;
+                    
+                    Platform.runLater(() -> {
+                        progresoactual2=currentValue;
+                        percentatge1.setText(String.valueOf(currentValue) + "%");
+                        progress1.setProgress(numero/100.0);
+                        if (progresoactual2 == 99){
+                            stopExecutor();
+                            boton2.setText("Activar");
                         }
 
-                    }
-                    //linea 2
-                    if (index == 1) {
-                        // Actualitzar el Label en el fil d'aplicació de l'UI
-    
-                        int randomNumber = random.nextInt(3) + 2; 
-                        int numeroAleatorio = (random.nextInt(3) + 3);
-                        numeroAleatorio = numeroAleatorio*1000;
-                        
-                        int numero = valor+randomNumber;
-                        
-                        Platform.runLater(() -> {
-                            progresoactual2=currentValue;
-                            percentatge1.setText(String.valueOf(numero) + "%");
-                            progress1.setProgress(numero/100.0);
-                            if (progresoactual2 == 100){
-                                stopExecutor();
-                            }
-
-                        });
+                    });
+                    try {
                         Thread.sleep(numeroAleatorio);
+                    } catch (InterruptedException e) {
+                        // Vuelve a establecer la bandera de interrupción
+                        Thread.currentThread().interrupt();
                     }
-
-                    if (index == 2) {
-                        // Actualitzar el Label en el fil d'aplicació de l'UI
-                        Platform.runLater(() -> {
-                            String porcentaje2 = percentatge0.getText();
-                            percentatge2.setText(String.valueOf(currentValue) + "%");
-                            progress2.setProgress(currentValue/100.0);
-                            if (porcentaje2 == "100%"){
-                                stopExecutor();
-                            }
-                        });
-                        Thread.sleep(1000);
-                    }
-
-                    //System.out.println("Updating label: " + index + ", Value: " + currentValue);
+                    
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+
+                if (index == 2) {
+                    int randomNumber = random.nextInt(3) + 4;
+                    int numero = valor+randomNumber;
+
+                    int numeroAleatorio = random.nextInt(6) * 1000 + 3000;
+                    // Actualitzar el Label en el fil d'aplicació de l'UI
+                    Platform.runLater(() -> {
+                        
+                        progresoactual3=currentValue;
+                        
+                        percentatge2.setText(String.valueOf(currentValue) + "%");
+                        progress2.setProgress(numero/100.0);
+                        if (progresoactual3 == 99){
+                            stopExecutor();
+                            boton3.setText("Activar");
+                        }
+                    });
+                    try {
+                        Thread.sleep(numeroAleatorio);
+                    } catch (InterruptedException e) {
+                        // Vuelve a establecer la bandera de interrupción
+                        Thread.currentThread().interrupt();
+                    }
+                    
+                }
+
+                System.out.println("Updating label: " + index + ", Value: " + currentValue);
             }
         });
     }
