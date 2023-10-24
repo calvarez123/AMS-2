@@ -5,25 +5,32 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class Controller1 implements initialize {
 
     @FXML
-    private Button button0, button1;
+    private Button button0, button1,stop;
     @FXML
     private ImageView img1,img2,img3,img4,img5,img6,img7,img8,img9,img10
     ,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23,img24;
+    @FXML
+    private Label progreso;
+    @FXML
+    private ProgressBar progressBar;
     
     @FXML
     private AnchorPane container;
+    
     
 
     private List<String> imageUrls = List.of(
@@ -35,13 +42,22 @@ public class Controller1 implements initialize {
         "/assets/image.png", "/assets/image.png", "/assets/image.png",
         "/assets/image.png", "/assets/image.png", "/assets/image.png",
         "/assets/image.png", "/assets/image.png", "/assets/image.png");    
-        private int currentImageIndex = 0;
-
+    private int currentImageIndex = 0;
+    private int contadorProgreso = 0;
+    private volatile boolean stopThread = false;
+    private volatile boolean stopProgressUpdate = false;
  
 
     @FXML
     private void animateToView0(ActionEvent event) {
         UtilsViews.setViewAnimating("View0");
+    }
+    @FXML
+    private void stopExecutor(ActionEvent event) {
+        stopThread = true;
+        stopProgressUpdate = true;
+        clearImageViews();
+        
     }
 
     @FXML
@@ -62,9 +78,18 @@ public class Controller1 implements initialize {
                 System.out.println("Image loaded");
                 targetImageView.setImage(image);
                 
-            
+                contadorProgreso++;
+                
+                System.out.println(contadorProgreso);
+                if (!stopProgressUpdate) {
+                    Platform.runLater(() -> {
+                        progreso.setText(String.valueOf(contadorProgreso) + " de 24:");
+                        progressBar.setProgress(contadorProgreso / 24.0);
+                    });
+                }
                 currentImageIndex++;
                 loadNextImage();
+                
             });
         }
     }
@@ -103,9 +128,16 @@ public class Controller1 implements initialize {
     public void loadImageBackground(String imageUrl, Consumer<Image> callBack) {
         // Use a thread to avoid blocking the UI
         CompletableFuture<Image> futureImage = CompletableFuture.supplyAsync(() -> {
+            if (stopThread) {
+                return null; // Salir temprano si se debe detener el hilo
+            }
             try {
                 // Simulate a loading time
-                Thread.sleep(100);
+                Random random = new Random();
+                int numeroAleatorio = random.nextInt(46) + 5;
+                numeroAleatorio = numeroAleatorio*100;
+                System.out.println(numeroAleatorio);
+                Thread.sleep(numeroAleatorio);
 
                 // Load the data from the assets file
                 Image image = new Image(getClass().getResource(imageUrl).toString());
@@ -123,5 +155,11 @@ public class Controller1 implements initialize {
         futureImage.thenAcceptAsync(result -> {
             callBack.accept(result);
         }, Platform::runLater);
+    }
+    private void clearImageViews() {
+        ImageView[] imageViews = {img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24};
+        for (ImageView imageView : imageViews) {
+            imageView.setImage(null);
+        }
     }
 }

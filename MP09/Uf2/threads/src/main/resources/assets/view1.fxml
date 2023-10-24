@@ -27,18 +27,18 @@
          </font>
       </Button>
       <Line endX="608.0" layoutX="192.0" layoutY="59.0" startX="-192.0" />
-      <Button layoutX="533.0" layoutY="88.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="Aturar">
+      <Button fx:id="stop" layoutX="533.0" layoutY="88.0" mnemonicParsing="false" onAction="#stopExecutor" prefHeight="51.0" prefWidth="144.0" text="Aturar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <ProgressBar layoutX="49.0" layoutY="211.0" prefHeight="44.0" prefWidth="703.0" progress="0.0" />
-      <Label layoutX="53.0" layoutY="179.0" prefHeight="24.0" prefWidth="76.0" text="0 de 24:">
+      <ProgressBar fx:id="progressBar" layoutX="49.0" layoutY="211.0" prefHeight="44.0" prefWidth="703.0" progress="0.0" />
+      <Label fx:id="progreso" layoutX="49.0" layoutY="170.0" prefHeight="33.0" prefWidth="144.0" text="0 de 24:">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="158.0" text="Progreso">
+      <Label layoutX="321.0" layoutY="139.0" text="Progreso">
          <font>
             <Font size="18.0" />
          </font>
