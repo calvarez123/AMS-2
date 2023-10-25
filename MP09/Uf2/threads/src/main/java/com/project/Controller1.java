@@ -34,14 +34,14 @@ public class Controller1 implements initialize {
     
 
     private List<String> imageUrls = List.of(
-        "/assets/image.png", "/assets/image.png", "/assets/image.png",
-        "/assets/image.png", "/assets/image.png", "/assets/image.png",
-        "/assets/image.png", "/assets/image.png", "/assets/image.png",
-        "/assets/image.png", "/assets/image.png", "/assets/image.png",
-        "/assets/image.png", "/assets/image.png", "/assets/image.png",
-        "/assets/image.png", "/assets/image.png", "/assets/image.png",
-        "/assets/image.png", "/assets/image.png", "/assets/image.png",
-        "/assets/image.png", "/assets/image.png", "/assets/image.png");    
+        "/assets/image1.png", "/assets/image2.png", "/assets/image3.png",
+        "/assets/image4.png", "/assets/image5.png", "/assets/image6.png",
+        "/assets/image7.png", "/assets/image8.png", "/assets/image9.png",
+        "/assets/image10.png", "/assets/image11.png", "/assets/image12.png",
+        "/assets/image13.png", "/assets/image14.png", "/assets/image15.png",
+        "/assets/image16.png", "/assets/image17.png", "/assets/image18.png",
+        "/assets/image19.png", "/assets/image20.png", "/assets/image21.png",
+        "/assets/image22.png", "/assets/image23.png", "/assets/image24.png");    
     private int currentImageIndex = 0;
     private int contadorProgreso = 0;
     private volatile boolean stopThread = false;
@@ -135,7 +135,7 @@ public class Controller1 implements initialize {
                 // Simulate a loading time
                 Random random = new Random();
                 int numeroAleatorio = random.nextInt(46) + 5;
-                numeroAleatorio = numeroAleatorio*100;
+                numeroAleatorio = numeroAleatorio*10;
                 System.out.println(numeroAleatorio);
                 Thread.sleep(numeroAleatorio);
 
@@ -153,8 +153,11 @@ public class Controller1 implements initialize {
         });
 
         futureImage.thenAcceptAsync(result -> {
+        // Verificar nuevamente si se debe detener antes de mostrar la imagen
+        if (!stopThread) {
             callBack.accept(result);
-        }, Platform::runLater);
+        }
+    }, Platform::runLater);
     }
     private void clearImageViews() {
         ImageView[] imageViews = {img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24};
@@ -163,9 +166,3 @@ public class Controller1 implements initialize {
         }
     }
 }
-/*futureImage.thenAcceptAsync(result -> {
-        // Verificar nuevamente si se debe detener antes de mostrar la imagen
-        if (!stopThread) {
-            callBack.accept(result);
-        }
-    }, Platform::runLater); */
