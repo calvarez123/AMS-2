@@ -1,6 +1,6 @@
 import java.io.File;
 import java.util.List;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class PR143GestioLlibreriaMain {
     public static void main(String[] args) {
