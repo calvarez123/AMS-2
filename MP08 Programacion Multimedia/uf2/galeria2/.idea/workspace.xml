@@ -4,42 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d0c9543-824f-4afa-8498-71e43c8148d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/data/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/data/alumnes.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/data/cursos.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/data/doraemon.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/data/eines.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/data/llenguatges.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/data/software.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/run.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/run.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/Dao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/DaoEina.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/DaoLlenguatge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/DaoSoftware.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/MainDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/ObjEina.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/ObjLlenguatge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/src/main/java/com/project/ObjSoftware.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/classes/com/project/Dao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/classes/com/project/DaoEina.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/classes/com/project/DaoSoftware.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/classes/com/project/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/classes/com/project/MainDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/classes/com/project/ObjEina.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/classes/com/project/ObjLlenguatge.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/classes/com/project/ObjSoftware.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Dual Patrons de Diseny/practica/dao/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../uf1/persistencia/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../uf1/persistencia/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../uf1/persistencia/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../uf1/persistencia/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../uf1/persistencia/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../uf1/persistencia/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4d0c9543-824f-4afa-8498-71e43c8148d7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,16 +24,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/super/AMS-2/MP08 Programacion Multimedia/uf2/galeria"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/super/AMS-2/MP08 Programacion Multimedia/uf2/galeria&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="galeria.app.main" />
