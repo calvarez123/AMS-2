@@ -33,11 +33,19 @@
          </font>
       </Text>
       <TextField fx:id="id_clave_publica" layoutX="355.0" layoutY="133.0" prefHeight="30.0" prefWidth="266.0" />
-      <TextField fx:id="id_archivo" layoutX="355.0" layoutY="206.0" prefHeight="30.0" prefWidth="266.0" />
-      <TextField fx:id="id_destino" layoutX="355.0" layoutY="277.0" prefHeight="30.0" prefWidth="266.0" />
       <Button layoutX="235.0" layoutY="366.0" mnemonicParsing="false" onAction="#action_encriptar" prefHeight="52.0" prefWidth="201.0" text="Encriptar">
          <font>
             <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="355.0" layoutY="208.0" mnemonicParsing="false" onAction="#select_archivo" prefHeight="28.0" prefWidth="266.0" text="Selecciona el Archivo">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="355.0" layoutY="277.0" mnemonicParsing="false" onAction="#select_destino" prefHeight="28.0" prefWidth="266.0" text="Selecciona el Destino">
+         <font>
+            <Font size="16.0" />
          </font>
       </Button>
    </children>

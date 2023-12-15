@@ -23,7 +23,6 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="id_archivo" layoutX="330.0" layoutY="173.0" prefHeight="30.0" prefWidth="266.0" />
       <Text layoutX="129.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clave privada:">
          <font>
             <Font size="24.0" />
@@ -40,12 +39,21 @@
          </font>
       </Text>
       <TextField fx:id="id_clave_privada" layoutX="330.0" layoutY="228.0" prefHeight="30.0" prefWidth="266.0" />
-      <TextField fx:id="id_destino" layoutX="330.0" layoutY="330.0" prefHeight="30.0" prefWidth="266.0" />
       <Button layoutX="230.0" layoutY="394.0" mnemonicParsing="false" onAction="#action_desencriptar" prefHeight="52.0" prefWidth="201.0" text="Desencriptar">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
       <PasswordField fx:id="id_contra" layoutX="331.0" layoutY="281.0" prefHeight="28.0" prefWidth="266.0" />
+      <Button layoutX="331.0" layoutY="173.0" mnemonicParsing="false" onAction="#select_archivo" prefHeight="28.0" prefWidth="266.0" text="Selecciona el Archivo">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="331.0" layoutY="330.0" mnemonicParsing="false" onAction="#select_destino" prefHeight="28.0" prefWidth="266.0" text="Selecciona el Destino">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
